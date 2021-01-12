@@ -1,0 +1,54 @@
+<header>
+    <nav class="navbar">
+        <div class="navbar__logo">
+            <i class="fas fa-house-user"></i>
+            <a href="/" class="">Air b&b</a>
+        </div>
+        <ul class="navbar__menu">
+            <li><a href="/listing">Room Listing</a></li>
+            <li><a href="/registration">Registration</a></li>
+            <li><a href="/dashboard">Dashboard</a></li>
+            {{#if isAdmin}}
+            <li><a href="/add-room">Upload Room</a></li>
+            {{/if}}
+        </ul>
+        <div class="navbar__sign-up">
+            {{#if username}}
+            Welcome {{username}}: <a href="/logout">logout</a></br>
+            {{!-- <a href="/dashboard">go to your dashboard</a> --}}
+            {{else}}
+            my account: <a href="/login">login</a>
+            {{/if}}
+        </div>
+        <i id="three-bars" class="fas fa-bars"></i>
+    </nav>
+</header>
+
+{{!-- can body parser handle more than one form in the same page? under the condition where names are unique --}}
+{{!-- <div class="modal-container">
+    <div class="modal-content">
+        <h1>Welcome to Air BnB</h1>
+        <span class="close">&times;</span>
+        <p>please sign up to experience our fantastic services</p>
+        <div class="inputs">
+            <label for="phone-number">Phone number</label>
+            <input type="tel" id="phone-number" name="phone-number" placeholder="(x)-(xxx)-(xxx)-(xxxx)" required />
+
+            <label for="first-name">First name</label>
+            <input type="text" id="first-name" name="first_name" required />
+
+            <label for="last-name">Last name</label>
+            <input type="text" id="last-name" name="last-name" required />
+
+            <label for="birthday">Birthday</label>
+            <input type="date" id="birthday" name="birthday" required />
+
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email" required />
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required />
+            <button type="submit">submit</button>
+        </div>
+    </div>
+</div> --}}

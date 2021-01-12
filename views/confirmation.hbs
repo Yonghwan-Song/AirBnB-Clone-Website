@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/eachRoom.css" type="text/css" />
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/5723b7f8ed.js" crossorigin="anonymous"></script>
+    <title>Booking Confirmation</title>
+</head>
+
+<body>
+    {{>header user}}
+
+    <div class="room">
+        <img src="/photos/{{reservedRoom.filename}}" alt="{{a_room.description}}" id="confirmedRoom" width="700"
+            height="400">
+        <div class="detail">
+            <h2>Booking Confirmation</h2></br>
+            <h3>Title: {{reservedRoom.title}}</h3>
+            <h3>Description: {{reservedRoom.description}} </h3>
+            <h3>Check In: {{reservedRoom.CheckInDate}}</h3>
+            <h3>Check Out: {{reservedRoom.CheckOutDate}}</h3>
+        </div>
+    </div>
+    {{>footer}}
+    <script src="/javascript/eachRoom.js"></script>
+</body>
+
+</html>

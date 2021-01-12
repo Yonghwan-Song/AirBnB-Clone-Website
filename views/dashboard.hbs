@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/registration.css" type="text/css" />
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/5723b7f8ed.js" crossorigin="anonymous"></script>
+    <title>DashBoard</title>
+</head>
+
+<body>
+    {{>header user}}
+    <div class="dashboard">
+        <div class="userinfo">
+            {{#if user.isAdmin}}
+            <h1>ADMIN DASHBOARD </h1>
+            {{else}}
+            <h1>USER DASHBOARD </h1>
+            {{/if}}
+            <h3>Hello {{user.username}}</h3>
+            <p>Welcome to your dashboard</p>
+            <p>Here is the information we have on file for you:</p>
+            <h4>username: {{user.username}} </h4>
+            <h4>email: {{user.email}}</h4>
+            <h2><a href="/logout">logout</a></h2>
+        </div>
+        {{#if user.reservedRooms}}
+        <div class="mybooking">
+            {{!-- <img src="/photos/{{room.filename}}" alt="{{room.description}}" id="roomIn-dashBoard" width="650"
+                height="400"> --}}
+            <img src="/photos/{{user.reservedRooms}}" alt="{{room.description}}" id="roomIn-dashBoard" width="650"
+                height="400">
+        </div>
+        <div class="desc">
+            <h2>My Booking</h2>
+            {{!-- <h3>Title: {{room.title}}</h3>
+            <h3>Description: {{room.description}} </h3>
+            <h3>Check In: {{user.CheckIn}}</h3>
+            <h3>Check Out: {{user.CheckOut}}</h3> --}}
+            <h3>Title: {{room.title}}</h3>
+            <h3>Description: {{room.description}} </h3>
+            <h3>Check In: {{user.CheckIn}}</h3>
+            <h3>Check Out: {{user.CheckOut}}</h3>
+        </div>
+        {{/if}}
+    </div>
+    {{>footer}}
+</body>
+
+</html>

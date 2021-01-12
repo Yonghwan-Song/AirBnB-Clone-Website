@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/5723b7f8ed.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/registration.css" type="text/css" />
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet" />
+    <title>Edit Room</title>
+</head>
+
+<body>
+    {{>header user}}
+
+    <h3>Add a room to the room listing</h3>
+
+    <div style="margin-bottom:12px;">
+        <a href="/listing" class="button">View Room Listing</a>
+    </div>
+    <div>
+        <p>{{ message }}</p>
+    </div>
+    <div style="width:400px;border:1px dashed #6495de;padding:16px;">
+        <form action="/edit-room/{{room.filename}}" method="POST">
+            <table>
+                <tr>
+                    <td>
+                        <label for="title">Room Title</label>
+                    </td>
+                    <td>
+                        {{room.title}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="price">Price(per night)</label>
+                    </td>
+                    <td>
+                        {{room.price}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="description">Description</label>
+                    </td>
+                    <td>
+                        <input id="description" name="description" type="text" value={{room.description}} /><br />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="location">Location</label>
+                    </td>
+                    <td>
+                        {{room.location}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        &nbsp;
+                    </td>
+                    <td>
+                        <input type="submit" value="Submit" />
+                    </td>
+                </tr>
+        </form>
+
+
+
+        {{>footer}}
+</body>
+
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="css/home.css" type="text/css" />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <script src="https://kit.fontawesome.com/5723b7f8ed.js" crossorigin="anonymous"></script>
+  <title>Home Page</title>
+</head>
+
+<body>
+  {{>header user}}
+
+  <div class="wrap-it">
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    {{!-- <section class="booking-search">
+      <form action="" class="booking">
+        <label for="where" id="where-l">WHERE</label>
+        <select name="where" id="where">
+          <option>Anywhere</option>
+          <option value="Toronto">Toronto/Ontario</option>
+          <option value="Montréal">Montréal/Quebec</option>
+          <option value="Vancouver">Vancouver/British Columbia</option>
+          <option value="Calgary">Calgary/Alberta</option>
+        </select>
+        <label for="check-in" id="check-in-l">CHECK-IN</label>
+        <label for="check-out" id="check-out-l">CHECK-OUT</label>
+        <input type="text" id="check-in" name="check-in" required />
+        <input type="text" id="check-out" name="check-out" required />
+        <label for="guest-num" id="guest-num-l">GUESTS</label>
+        <input type="text" id="guest-num" name="guest-num" required />
+        <button type="submit" id="submit">Search</button>
+      </form> --}}
+    </section>
+    {{#unless user}}
+    <a href="/login" id="login-link">GO TO LOG-IN PAGE</a>
+    {{/unless}}
+  </div>
+  {{!-- <section class="login">
+    <form action="">
+      <table class="login-password">
+        <tbody>
+          <tr>
+            <td><label for="username">Username</label></td>
+          </tr>
+          <tr>
+            <td><input type="text" id="username" required></td>
+          </tr>
+          <tr>
+            <td><label for="password">Password</label></td>
+          </tr>
+          <tr>
+            <td><input type="password" id="password" required></td>
+          </tr>
+          <tr>
+            <td><button type="submit" id="submit">Sign in</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+  </section> --}}
+
+
+  <section class="banner">
+    <h1>Stay Comfortable anywhere, like your home.</h1>
+    <img id="house" src="./images/architecture-1867187_1280.jpg" alt="house" />
+    <img id="room" src="./images/interior-1961070_1280.jpg" alt="room" />
+  </section>
+  <section class="information">
+    <div>
+      <h2>Why AirBnB?</h2>
+      <ul>
+        <li>More affordable price</li>
+        <li>Wide selection of places</li>
+        <li>More than just staying, <br>you can get unique experience in each unique place</li>
+      </ul>
+    </div>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/OXVRB_u9Y7M" frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+    </iframe>
+  </section>
+
+  {{>footer}}
+  {{!-- <footer>
+    <div class="footer-menu">
+      <div class="about">
+        <h2>ABOUT</h2>
+        <ul id="about">
+          <li>How Airbnb works</li>
+          <li>Newsroom</li>
+          <li>Airbnb Plus</li>
+      </div>
+      <div class="community">
+        <h2>COMMUNITY</h2>
+        <ul id="community">
+          <li>Diversity & Belonging</li>
+          <li>Accessibility</li>
+          <li>Airbnb Associates</li>
+        </ul>
+      </div>
+      <div class="host">
+        <h2>HOST</h2>
+        <ul id="host">
+          <li>Host your home</li>
+          <li>Host an Online Experience</li>
+          <li>Host an Experience</li>
+        </ul>
+      </div>
+      <div class="support">
+        <h2>SUPPORT</h2>
+        <ul id="support">
+          <li>Updates for COVID-19</li>
+          <li>Help Centre</li>
+          <li>Cancellation options</li>
+        </ul>
+      </div>
+    </div>
+    <div class="social-media">
+      <a href="https://www.instagram.com/airbnb/" id="instagram" target="blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://twitter.com/airbnb" id="twitter" target="blank"><i class="fab fa-twitter-square"></i></a>
+      <a href="https://www.facebook.com/airbnb" id="facebook" target="blank"><i class="fab fa-facebook-square"></i></a>
+    </div>
+  </footer> --}}
+
+  <script src="javascript/home.js"></script>
+</body>
+
+</html>

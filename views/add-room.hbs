@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/5723b7f8ed.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/registration.css" type="text/css" />
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet" />
+    <title>Add Room</title>
+</head>
+
+<body>
+    {{>header user}}
+    {{!-- need to classify if a user wants to 1)edit a particular record or 2)add a new record --}}
+    {{!-- in the case of 1), there will be a data sent into this page when it was rendered by server --}}
+    {{!-- else, there will be no room data sent into --}}
+    {{!-- may cause syntax error because it is not number? --}}
+
+    <div>
+        <p>{{ message }}</p>
+    </div>
+    <div style="width:400px;border:1px dashed #6495de;padding:16px;">
+        {{!-- enctype might cause error 안되면 form 자체를 구분해버려야할 듯....--}}
+        <form action="/add-room" class="addRoom" method="POST" enctype="multipart/form-data">
+            {{#if room.filename}}
+            <h3>Edit the room : {{room.filename}}</h3>
+            <img src="./photos/{{room.filename}}" alt="{{room.description}}" id="" width="250" height="200">
+            {{!-- this will be used to fetch the right data from mongodb --}}
+            <input type="hidden" name="filename" value="{{room.filename}}">
+            {{!-- this will be used in the condition expression to determine if a user wants to either add or edit --}}
+            <input type="hidden" name="Update" value="1">
+            {{else}}
+            <h3>Add a room to the room listing</h3>
+            <div style="margin-bottom:12px;">
+                <a href="/listing" class="button">View Room Listing</a>
+            </div>
+            <input type="hidden" name="Update" value="0">
+            {{/if}}
+            <table>
+                <tr>
+                    <td>
+                        <label for="title">Room Title</label>
+                    </td>
+                    <td>
+                        <input id="title" name="title" type="text" value="{{room.title}}" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="price">Price(per night)</label>
+                    </td>
+                    <td>
+                        <input id="price" name="price" type="text" value="{{room.price}}" /><br />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="description">Description</label>
+                    </td>
+                    <td>
+                        <input id="description" name="description" type="text" value="{{room.description}}" /><br />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="location">Location</label>
+                    </td>
+                    <td>
+                        <input id="location" name="location" type="text" value="{{room.location}}" /><br />
+                    </td>
+                </tr>
+                <tr>{{#unless room.filename}}
+                    <td>
+                        <label for="photo">Photo</label>
+                    </td>
+                    <td>
+                        <input id="photo" name="photo" type="file" />
+                    </td>
+                    {{/unless}}
+                </tr>
+                <tr>
+                    <td>
+                        &nbsp;
+                    </td>
+                    <td>
+                        <input type="submit" value="Submit" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="errorM1">All information is required</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="errorM2">Photo is required</p>
+                    </td>
+                </tr>
+        </form>
+        {{>footer}}
+        <script src="javascript/addRoom.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{{!--
+<link href="{{ asset('css/bootstrap.min.css') }}" rel='stylesheet' type='text/css' />
+<script src="{{ asset('js/jquery.min.js') }}"> </script> --}}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/eachRoom.css" type="text/css" />
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/5723b7f8ed.js" crossorigin="anonymous"></script>
+    <title>A Room</title>
+</head>
+
+<body>
+    {{>header user}}
+    <div class="room">
+        <img src="/photos/{{a_room.filename}}" alt="{{a_room.description}}" id="r1" width="700" height="400">
+        <section class="to-right">
+            <p><b>{{a_room.title}}: {{a_room.description}}</b></p>
+            <span>Location: {{a_room.location}} &nbsp&nbsp&nbsp&nbsp&nbsp ${{a_room.price}} CAD/night</span>
+            <section class="booking-search">
+                <form action="/confirmation/{{a_room.filename}}" class="booking" method="POST">
+                    <label for="check-in" id="check-in-l">CHECK-IN</label>
+                    <label for="check-out" id="check-out-l">CHECK-OUT</label>
+                    <input type="date" id="check-in" name="checkIn" placeholder="2020-12-11" />
+                    <input type="date" id="check-out" name="checkOut" placeholder="2020-12-20" />
+                    <label for="guest-num" id="guest-num-l">GUESTS NUMBER</label>
+                    <select name="guestNum" id="guest-num">;
+                        <option value="1" class="one">One</option>
+                        <option value="2" class="two">Two</option>
+                        <option value="3" class="three">Three</option>
+                        <option value="4" class="four">Four</option>
+                        <option value="5" class="five">Five</option>
+                    </select>
+                    <button type="submit" id="submit">Book now</button>
+                    <input type="hidden" name="pricePerNight" value="{{a_room.price}}">
+                </form>
+                <h4 id="dates">Check in and out dates are required</h4>
+                <h4 id="numOfpeople">Choose number of guests</h4>
+                <p class="datediff"></p>
+                <p class="priceEstimate"></p>
+            </section>
+        </section>
+
+    </div>
+    {{>footer}}
+    <script src="/javascript/eachRoom.js"></script>
+</body>
+
+</html>

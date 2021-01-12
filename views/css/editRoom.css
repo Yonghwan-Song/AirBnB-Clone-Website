@@ -1,0 +1,253 @@
+html, body{
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: 'Source Sans Pro';
+    background-color: #f9ebd9;
+  }
+  .navbar {
+    background-color: #439093;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+  }
+  
+  .navbar__sign-up {
+    font-size: 1.2em;
+  }
+  .navbar__sign-up:hover {
+    background-color: #f09b93;
+    border-radius: 4px;
+    color: #EBD6D7;
+  }
+  
+  .navbar__logo {
+    /* 1.3em정도 되네 */
+    font-size: 22px;
+    color: white;
+  }
+  
+  .navbar__logo > i {
+    font-size: 30px;
+    color: rgb(30, 84, 185);
+  }
+  
+  .navbar__menu {
+    display: flex;
+    list-style: none;
+    padding-left: 0;
+    /* 글씨 크기 때문에 차이나는 비대칭 상쇄시키려고 오른쪽에서 민거임 */
+    padding-right: 7px;
+    font-size: 1.2em;
+  }
+  .navbar #three-bars{
+    display: none;  
+  }
+  .navbar__menu li:hover {
+    background-color: #f09b93;
+    border-radius: 4px;
+    color: #EBD6D7;
+  }
+  
+  /* 이거 좀 바꿔야하나? */
+  .navbar__menu li {
+    padding: 8px 67px;
+  }
+  
+  .navbar__menu > a {
+    text-decoration: none;
+    color: white;
+  }
+
+  /************************************************************/
+  .modal-container {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgb(238, 232, 170, 0.5);
+  }
+  
+  .modal-content {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    max-width: 80%;
+    background-color: white;
+    z-index: 7;
+    border: 1px solid black;
+    border-radius: 12px;
+  }
+  
+  .close {
+    position: absolute;
+    top: 3px;
+    right: 4px;
+  }
+  
+  .modal-content > h1,
+  .modal-content > p {
+    text-align: center;
+  }
+  
+  .inputs {
+    display: flex;
+    flex-direction: column;
+    padding: 2px 3px;
+  }
+  
+  .inputs > button {
+    background-color: greenyellow;
+    font-weight: bold;
+  }
+/*********************************************************/
+.registration form {
+    display: grid;
+    grid-template-columns: repeat(3fr 1.6fr 2fr);
+    width: 35%;
+    row-gap: 2px;
+}
+
+#username {
+  grid-column-start: 1;
+  grid-column-end: 4; 
+}
+
+#email {
+    grid-column-start: 1;
+    grid-column-end: 4; 
+}
+#first-name {
+    grid-column-start: 1;
+    grid-column-end: 4;
+}
+#last-name {
+    grid-column-start: 1;
+    grid-column-end: 4;
+}
+#password {
+    grid-column-start: 1;
+    grid-column-end: 4;
+}
+#birthday{
+    grid-column-start: 1;
+    grid-column-end: 4;
+}
+#place {
+  grid-column: 2/4;
+}
+#submit {
+    grid-column-start: 1;
+    grid-column-end: 4;
+}
+.errorMessage1, .errorMessage2 {
+  display: none;
+  grid-column: 1/4;
+  color: red;
+}
+  /******************************************************/
+  footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    border-top: black bold;
+    background-color: #EBD6D7;
+    
+  }
+footer i{
+    padding-left: 0.7em;
+    padding-right: 0.5em;
+    font-size: 1.5em;
+    padding-bottom: 0.2em;
+  }
+  footer  i:hover{
+    color: #F09B93;
+  }
+  .footer-menu {
+    display:flex;
+    justify-content: space-around;
+  }
+  .footer-menu ul{
+    list-style: none;
+    padding-left: 0;
+  }
+  .social-media {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    /* height: 12%; */
+  }
+  
+  /************************************************************************/
+  @media screen and (max-width: 768px) {
+    .footer-menu {
+     flex-direction: column;
+    }
+    .footer-menu ul {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .footer-menu ul li{
+      padding: 8px 12px
+    }
+    .footer-menu h2 {
+      padding-left: 8px;
+    }
+    .footer-menu div {
+      border-bottom: 1.2px solid rgb(179, 175, 175);
+      margin: 0 15px 10px;
+    } 
+    footer {
+      position: static;
+    }
+}
+
+@media screen and (max-width: 668px) {
+  #month{
+    grid-column: 1/4;
+  }
+  #day{
+    grid-column: 1/4;
+  }
+  #year{
+    grid-column: 1/4;
+  }
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid black;
+    padding: 10px 12px;
+  }
+  .navbar #three-bars {
+    display: block;
+    position: absolute;
+    right: 14px;
+    top: 16px;
+    font-size: 24px;
+  }
+  .navbar__menu {
+    flex-direction: column;
+    margin: 0;
+    width: 100%;
+    display: none;
+  }
+  .navbar__menu li {
+    text-align: center;
+  }
+  .navbar__sign-up {
+    display: none;
+  }
+  .navbar__logo {
+    align-self: flex-start;
+  }
+  .navbar__menu.active, .navbar__sign-up.active {
+    display: block;
+  }
+}

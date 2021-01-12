@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/listing.css" type="text/css" />
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/5723b7f8ed.js" crossorigin="anonymous"></script>
+    <title>Room Listing page</title>
+</head>
+
+<body>
+    {{>header user}}
+    <main class="main">
+        <form action="/listing-classify" class="classify"></form>
+        <div class="grid-container">
+            {{#if user.isAdmin}}
+            {{#if hasPhotos }} {{#each photos}}
+            <div id="r1">
+                <a href="/eachRoom/{{filename}}" class="l1">
+                    <img src="./photos/{{filename}}" alt="{{description}}" id="r1" width="250" height="200">
+                    <article>
+                        <p><b>{{title}}: {{description}}</b></p>
+                        <span>Location: {{location}} &nbsp&nbsp&nbsp&nbsp&nbsp ${{price}} CAD/night</span>
+                    </article>
+                </a>
+                {{!-- PASSING THE UNIQUE KEY VALUE of the object in the current iteration --}}
+                {{!-- Though this reference requests routing to either /remove~~ or /edit~~,  --}}
+                {{!-- In terms of client side, user want to see a editing page. --}}
+                {{!-- Hence, I need to make it possible in the routing get function --}}
+                <a href="/remove-photo/{{filename}}">Remove</a>
+                <a href="/edit-room/{{filename}}">Edit</a>
+                {{!-- <a href="/add-room/{{filename}}">Edit</a> --}}
+
+                {{!-- <form action="/edit-photo/{{filename}}" method="post">
+          <button type="submit">
+            Edit
+          </button> --}}
+                </form>
+            </div>
+            {{/each}}{{/if}}
+            {{else}}
+            {{#if hasPhotos }} {{#each photos}}
+            <div id="r1">
+                <a href="/eachRoom/{{filename}}" class="l1">
+                    <img src="./photos/{{filename}}" alt="{{description}}" id="r1" width="250" height="200">
+                    <article>
+                        <p><b>{{title}}: {{description}}</b></p>
+                        <span>Location: {{location}} &nbsp&nbsp&nbsp&nbsp&nbsp ${{price}} CAD/night</span>
+                    </article>
+                </a>
+            </div>
+            {{/each}}{{/if}}
+            {{/if}}
+        </div>
+    </main>
+    {{>footer}}
+
+    <script src="javascript/home.js"></script>
+</body>
+
+</html>

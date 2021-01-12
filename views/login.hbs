@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://kit.fontawesome.com/5723b7f8ed.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/css/registration.css" type="text/css" />
+  {{!-- 체크 위에 css --}}
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet" />
+  <title>Login Page</title>
+</head>
+
+<body>
+  {{>header user}}
+  {{#if errorMsg}}
+  <h5>{{errorMsg}}</h5>
+  {{/if}}
+  <section class="login">
+    <form action="/login" method="POST">
+      <table class="login-password">
+        <tbody>
+          <tr>
+            <td><label for="username">Username</label></td>
+          </tr>
+          <tr>
+            <td><input type="text" id="username" name="username" required></td>
+          </tr>
+          <tr>
+            <td><label for="password">Password</label></td>
+          </tr>
+          <tr>
+            <td><input type="password" id="password" name="password" required></td>
+          </tr>
+          <tr>
+            <td><button type="submit" id="submit">Sign in</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+  </section>
+  {{>footer}}
+</body>
+
+</html>
